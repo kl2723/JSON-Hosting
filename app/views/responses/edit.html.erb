@@ -1,0 +1,7 @@
+<% provide(:title, 'Edit JSON') %>
+<h1>Edit JSON</h1>
+
+<%= form_for(@response) do |f| %>
+	<%= render 'fields', f: f %>
+	<%= f.submit "Save", class: "btn btn-large btn-primary" %>	
+<% end %>

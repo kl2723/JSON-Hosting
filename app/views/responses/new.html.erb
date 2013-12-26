@@ -1,0 +1,18 @@
+	<% provide(:title, 'Upload JSON') %>
+	<% if signed_in? %>
+	<div class = "current_user">
+		<%= link_to gravatar_for(current_user, size: 70), current_user %>
+		<span class = "current_user_name"><%= current_user.name %></span>
+		<p>
+		<span class = "current_user_json_count"><%= link_to "JSONs (#{current_user.responses.count})", responses_path %></span>
+	</div>
+	<% else %>
+	<h1>Upload your JSON!</h1>
+	<% end %>
+	
+	<div>
+		<%= form_for(@response) do |f| %>
+			<%= render 'fields', f: f %>
+			<%= f.submit "Upload", class: "btn btn-large btn-primary" %>	
+		<% end %>
+	</div>

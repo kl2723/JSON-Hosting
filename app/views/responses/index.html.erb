@@ -1,0 +1,9 @@
+<% provide(:title, 'JSONs') %>
+
+<h1>You have uploaded <%= pluralize(@responses.count, 'JSON') %></h1>
+
+<ol class="responses">
+	<%= render @responses %>
+</ol>
+
+<%= will_paginate %>

@@ -1,0 +1,17 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<table>
+<tr>
+	<td>
+		<%= f.label :title %>
+		<%= f.text_field :title, :placeholder => "My JSON"%>
+	</td><td></td>
+	<td>
+		<%= f.label :status_code %>
+		<%= f.select :status_code, options_for_select(Response.avialable_status_codes.keys, @response.status_code) %>
+	</td>
+</tr>
+</table>
+
+<%= f.label :body %>
+<%= f.text_area :body, :placeholder => '{"key" : "value"}', :rows => "14"%>	
