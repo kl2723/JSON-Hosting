@@ -1,15 +1,16 @@
 <li>
-	<span class="response_title"><%= link_to wrap(response.title), response, :target => "_blank" %></span>
-	<span class="timestamp">
-		Uploaded <%= time_ago_in_words(response.created_at) %> ago.
-	</span>
+	<span class="response_title"><%= wrap(response.title) %></span>
+	<div><%= link_to response_url(response, :format => :json), response, :target => "_blank" %></div>
+	<span class="timestamp"> Uploaded <%= time_ago_in_words(response.created_at) %> ago. </span>
 	
+	<div>
 	<% if current_user == response.user || current_user.admin? %>
-		<%= link_to "edit", edit_response_path(response) %>
+		<%= link_to "Edit", edit_response_path(response), class: "btn btn-mini btn-info" %>
 									
-		<%= link_to "delete", response, method: :delete,
-			 							data: { confirm: "Are you sure?" },
-										title: response.title %>
+		<%= link_to "Delete", response, class: "btn btn-mini btn-danger", method: :delete,
+			 																	data: { confirm: "Are you sure?" },
+																				title: response.title %>
 	<% end %>
+	<div>
 	
 </li>

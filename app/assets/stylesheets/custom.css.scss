@@ -185,7 +185,7 @@ input {
   margin: 10px 0 0 0;
 
   li {
-    padding: 10px 0;
+    padding: 20px 0;
     border-bottom: 1px solid $grayLighter;
     &:last-child {
       border-bottom: none;
@@ -194,7 +194,8 @@ input {
 }
 
 .response_title {
-  display: block;
+	font-weight: bold;
+    font-size: 1.5em;
 }
 
 .timestamp {
