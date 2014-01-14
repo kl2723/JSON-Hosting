@@ -1,7 +1,7 @@
 class ResponsesController < ApplicationController
   
   before_action :signed_in_user, only: [:index]
-  before_action :correct_user,   only: [:show, :edit, :update, :destroy]
+  before_action :correct_user,   only: [:edit, :update, :destroy]
   
   def new
     @response = signed_in? ? current_user.responses.build : default_user.responses.build
@@ -23,6 +23,7 @@ class ResponsesController < ApplicationController
   end
   
   def show
+    @response = Response.find_by(id: params[:id])
     render :json => @response.body, :status => @response.status_code
   end
   
